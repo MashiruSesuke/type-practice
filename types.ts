@@ -42,7 +42,8 @@ export async function fetchData<T>(url: string): Promise<T> {
   const res = await fetch(url);
 
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
+  const data = await res.json();
+  return data as T; // продвинутая типизация ответа, как подстраховка
 }
 
 // утилита для обновления объекта (иммутабельно)
