@@ -2,8 +2,8 @@ function toCamelCase(str: string): string {
   return str.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
-export function transformKeysToCamel<T>(obj: Record<string, any>): T {
-  const result: Record<string, any> = {};
+export function transformKeysToCamel<T>(obj: Record<string, unknown>): T {
+  const result: Record<string, unknown> = {};
 
   for (const key in obj) {
     const camelKey = toCamelCase(key);

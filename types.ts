@@ -88,10 +88,10 @@ export type Nullable<T> = { [K in keyof T]: T[K] | null };
 
 // Confitional types + infer
 // Определить, является ли тип функцией
-export type IsFunction<T> = T extends (...args: any[]) => any ? true : false;
+export type IsFunction<T> = T extends (...args: unknown[]) => unknown ? true : false;
 
 // Получить тип возвращаемого значения функции (аналог ReturnType)
-export type MyReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
+export type MyReturnType<T> = T extends (...args: unknown[]) => infer R ? R : never;
 
 // Получить тип элемента массива (если массив, иначе сам тип)
 export type ArrayElement<T> = T extends (infer U)[] ? U : T;
